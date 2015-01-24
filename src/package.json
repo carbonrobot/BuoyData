@@ -1,0 +1,12 @@
+{
+  "author": "Charles Brown",
+  "name": "BuoyData",
+  "version": "0.0.1",
+  "homepage": "",
+  "dependencies": {},
+  "devDependencies": {
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "karma": "^0.12.9"
+  }
+}

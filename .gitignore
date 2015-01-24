@@ -1,0 +1,10 @@
+.DS_Store
+.nodemonignore
+.sass-cache/
+npm-debug.log
+source/node_modules/
+source/public/lib/*
+source/app/tests/coverage/
+*.sublime-*
+*.csproj
+*.sln
