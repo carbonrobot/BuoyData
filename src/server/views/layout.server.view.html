@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>NOAA Buoy Explorer</title>
+
+	<!-- General META -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<!-- Fav Icon -->
+	<link href="/modules/core/img/brand/rsz_aton.png" rel="shortcut icon" type="image/png">
+
+	<!--Application CSS Files-->
+	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">
+	{% endfor %}
+	<style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+
+	<!-- HTML5 Shim -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div id="map-canvas"></div>
+	<main class="content ng-cloak">
+		<div data-ui-view></div>
+	</main>
+	
+	<!--Application JavaScript Files-->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<script type="text/javascript" src="modules/core/scripts/services/overlay.client.service.js"></script>
+	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
+	{% endfor %} 
+
+	{% if process.env.NODE_ENV === 'development' %}
+	<!--Livereload script rendered -->
+	<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
+	{% endif %}
+	
+</body>
+
+</html>
