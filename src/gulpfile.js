@@ -19,31 +19,52 @@ var paths = {
 		],
 		dest: 'public/dist/js'
 	},
+	scripts: {
+	    source: [
+            'public/*.js',
+            'public/modules/**/*.js',
+            'public/modules/**/scripts/*.js',
+            'public/modules/**/scripts/config/*.js',
+            'public/modules/**/scripts/controllers/*.js',
+            'public/modules/**/scripts/directives/*.js',
+            'public/modules/**/scripts/services/*.js'
+	    ],
+        dest: 'public/dist/js'
+	},
 	styles: {
 		source: 'vendor/bootstrap/dist/css/bootstrap.css',
 		dest: 'public/dist/css'
 	}
 };
 
-// client vendor scripts
+// vendor scripts
 gulp.task('vendor', ['clean'], function(){
 	return gulp.src(paths.vendor.source)
 		.pipe(gulp.dest(paths.vendor.dest));
 });
 
-// client vendor styles
-gulp.task('styles', ['clean'], function(){
-	return gulp.src(paths.styles.source)
+// vendor styles
+gulp.task('styles', ['clean'], function () {
+    return gulp.src(paths.styles.source)
 		.pipe(gulp.dest(paths.styles.dest));
 });
 
+// client scripts
+gulp.task('scripts', ['clean'], function () {
+    return gulp.src(paths.scripts.source)
+		.pipe(gulp.dest(paths.scripts.dest));
+});
+
+// build
+gulp.task('build', ['clean', 'vendor', 'styles', 'scripts']);
+
 // clean assets
 gulp.task('clean', function(cb) {
-    del([paths.vendor.dest, paths.styles.dest], cb)
+    del([paths.vendor.dest, paths.styles.dest], cb);
 });
 
 // default development
-gulp.task('default', ['vendor', 'styles'], function(){
+gulp.task('default', ['build'], function(){
 	nodemon({ 
 		script: 'server.js',
 		env: {NODE_ENV: 'development', DEBUG: true}

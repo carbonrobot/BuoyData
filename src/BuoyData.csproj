@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF1B6833-04FA-4C3E-BBC1-B131AD48B17D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>BuoyData</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include=".bowerrc" />
+    <None Include="bower.json" />
+    <None Include="package.json" />
+    <None Include="public\modules\core\img\brand\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="config\config.js" />
+    <Content Include="config\env\all.js" />
+    <Content Include="config\env\development.js" />
+    <Content Include="config\env\production.js" />
+    <Content Include="config\env\test.js" />
+    <Content Include="config\express.js" />
+    <Content Include="config\init.js" />
+    <Content Include="gulpfile.js" />
+    <Content Include="public\application.js" />
+    <Content Include="public\config.js" />
+    <Content Include="public\humans.txt" />
+    <Content Include="public\modules\core\core.client.module.js" />
+    <Content Include="public\modules\core\css\bucket-ico-fonts.css" />
+    <Content Include="public\modules\core\css\core.css" />
+    <Content Include="public\modules\core\css\style-responsive.css" />
+    <Content Include="public\modules\core\css\style.css" />
+    <Content Include="public\modules\core\img\brand\rsz_aton.png" />
+    <Content Include="public\modules\core\img\loaders\loader.gif" />
+    <Content Include="public\modules\core\scripts\config\core.client.routes.js" />
+    <Content Include="public\modules\core\scripts\controllers\home.client.controller.js" />
+    <Content Include="public\modules\core\scripts\directives\googleMap.client.directive.js" />
+    <Content Include="public\modules\core\scripts\services\overlay.client.service.js" />
+    <Content Include="public\modules\core\views\home.client.view.html" />
+    <Content Include="public\robots.txt" />
+    <Content Include="server.js" />
+    <Content Include="server\controllers\core.server.controller.js" />
+    <Content Include="server\controllers\errors.server.controller.js" />
+    <Content Include="server\routes\core.server.routes.js" />
+    <Content Include="server\views\404.server.view.html" />
+    <Content Include="server\views\500.server.view.html" />
+    <Content Include="server\views\layout.server.view.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="public\modules\core\scripts\tests\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Target Name="Build">
+    <!-- Ensure .bin exists in Environment Path -->
+    <AddBinPathToEnvironment />
+    <Exec Command=".bin\npm install" ContinueOnError="ErrorAndContinue" />
+    <Exec Command=".bin\bower install" ContinueOnError="ErrorAndContinue" />
+    <Exec Command=".bin\grunt" ContinueOnError="ErrorAndContinue" />
+    <!-- Remove node_modules folder after a Release build because it tends to cause path length issues -->
+    <Exec Command="rd /s /q  node_modules" Condition=" '$(Configuration)' == 'Release' And Exists('node_modules') " />
+  </Target>
+  <Target Name="Clean">
+    <Exec Command="rd /s /q $(OutputPath)" Condition="Exists($(OutputPath))" />
+  </Target>
+  <Target Name="Rebuild" DependsOnTargets="Clean;Build">
+  </Target>
+</Project>

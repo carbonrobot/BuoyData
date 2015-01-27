@@ -3,4 +3,9 @@ npm-debug.log
 node_modules/
 vendor/
 public/dist/*
+bin
+obj
 *.sublime-*
+*.suo
+*.user
+*.GhostDoc.xml

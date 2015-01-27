@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -17,10 +17,10 @@
 	{% for cssFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">
 	{% endfor %}
 	<style>
-      html, body, #map-canvas {
+      html, body, googleMap {
         height: 100%;
-        margin: 0px;
-        padding: 0px
+        margin: 0;
+        padding: 0;
       }
     </style>
 
@@ -38,7 +38,6 @@
 	
 	<!--Application JavaScript Files-->
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-	<script type="text/javascript" src="modules/core/scripts/services/overlay.client.service.js"></script>
 	{% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
 	{% endfor %} 
 
