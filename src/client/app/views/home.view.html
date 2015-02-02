@@ -1,15 +1,5 @@
-<section data-ng-controller="HomeController as main">
-
-    <div class="buoy-map-tools">
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                {{ main.selectedStation || 'Select a station' }}
-                <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-            </ul>
-        </div>
-    </div>
+<section data-ng-controller="HomeController as main" class="buoy-full-page">
+    
+    <div data-google-map data-stations="main.stations" class="buoy-google-map"></div>
 
 </section>

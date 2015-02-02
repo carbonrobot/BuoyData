@@ -22,10 +22,9 @@
 </head>
 
 <body data-ng-app="buoyApp">
-    <div class="buoy-overlay ng-cloak">
-        <div data-ui-view></div>
+    <div class="ng-cloak buoy-full-page">
+        <div data-ui-view class="buoy-full-page"></div>
     </div>
-    <div data-google-map class="buoy-full-page"></div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key={{googleApiKey}}"></script>
     <script src="public/js/vendor.min.js"></script>

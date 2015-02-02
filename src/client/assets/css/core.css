@@ -8,17 +8,9 @@ html, body {
     display: none;
 }
 
-.buoy-full-page {
+.buoy-full-page,
+.buoy-google-map {
     height: 100%;
-}
-
-.buoy-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 99;
 }
 
 .buoy-map-tools {

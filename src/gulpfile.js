@@ -2,15 +2,14 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     del = require('del'),
     nodemon = require('gulp-nodemon'),
-    uglify = require('gulp-uglify'),
+    uglify = require('gulp-uglifyjs'),
     templateCache = require('gulp-angular-templatecache'),
     config = require('./config/config.js');
 
 // vendor scripts
 gulp.task('vendor', function() {
     return gulp.src(config.assets.lib.js)
-        .pipe(concat('vendor.min.js'))
-        .pipe(uglify())
+        .pipe(uglify('vendor.min.js'))
 		.pipe(gulp.dest('public/js'));
 });
 
@@ -24,9 +23,10 @@ gulp.task('styles', function () {
 // client scripts
 gulp.task('scripts', function() {
     return gulp.src(config.assets.js)
-        .pipe(concat('application.min.js'))
-        .pipe(uglify())
-		.pipe(gulp.dest('public/js'));
+        .pipe(uglify('application.min.js', {
+            outSourceMap: true
+        }))
+        .pipe(gulp.dest('public/js'));
 });
 
 // partials

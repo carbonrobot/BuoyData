@@ -11,7 +11,7 @@
             return $http
                 .get('/stations')
                 .then(function(response) {
-                    return response.data.station;
+                    return response.data;
                 });
         }
     };
