@@ -4,7 +4,7 @@ The NOAA Buoy Data Explorer will map known buoy locations on a global map and al
 
 ## Getting Started
 
-The following assumes you have Node, NPM, and Bower (global) installed. If not, refer to the installation on the appropriate websites.
+The following assumes you have Node, NPM, and Bower installed. If not, refer to the installation on the appropriate websites.
 
 - Clone the repository
 - Run `npm install` to initialize packages. This will also run `bower install` automagically.
