@@ -8,3 +8,10 @@ The NOAA Buoy Data Explorer will map known buoy locations on a global map and al
 - Run `npm install` to initialize packages. This will also run `bower install` automagically.
 - Run `npm start` to build and start the server in debug
 - Browse to http://localhost:3000 in your favorite browser
+
+### Future Work
+
+The following will be added in the future:
+
+- Historical Sea conditions
+- Historical Wind conditions 
