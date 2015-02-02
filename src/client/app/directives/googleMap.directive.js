@@ -49,6 +49,13 @@
                             position: new google.maps.LatLng(parseFloat(station.lat), parseFloat(station.lon)),
                             title: station.name
                         });
+                        var info = new google.maps.InfoWindow({
+                            content: '<div>' + station.name + '<hr/>Lat,Long: (' + station.lat + ', ' + station.lon + ')</div>'
+                        });
+                        google.maps.event.addListener(marker, 'click', function() {
+                            info.open(map, marker);
+                        });
+
                         marker.setMap(map);
                         markers.push(marker);
                     });
