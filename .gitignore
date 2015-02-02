@@ -1,11 +1,12 @@
 .nodemonignore
 npm-debug.log
-node_modules/
-vendor/
-public/dist/*
+node_modules
 bin
 obj
 *.sublime-*
 *.suo
 *.user
 *.GhostDoc.xml
+src/client/assets/lib
+src/public/js
+src/public/css
