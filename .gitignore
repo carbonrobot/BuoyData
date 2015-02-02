@@ -6,7 +6,9 @@ obj
 *.sublime-*
 *.suo
 *.user
+*.csproj
+*.sln
 *.GhostDoc.xml
-src/client/assets/lib
-src/public/js
-src/public/css
+client/assets/lib
+public/js
+public/css
