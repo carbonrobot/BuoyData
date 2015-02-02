@@ -10,6 +10,4 @@ obj
 *.sln
 *.GhostDoc.xml
 client/assets/lib
-public/js
-public/css
-public/img
+public/*

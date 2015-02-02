@@ -13,8 +13,58 @@ html, body {
     height: 100%;
 }
 
-.buoy-map-tools {
-    position: relative;
-    top: 27px;
+.buoy-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
     left: 100px;
+    z-index: 99;
+}
+
+.buoy-overlay-tools {
+    position: relative;
+    left: 0;
+    right: 0;
+    padding: 7px;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-bottom-left-radius: 4px;
+}
+
+.buoy-overlay-tools .title {
+    font-size: 24px;
+}
+
+.buoy-overlay-tools .content {
+    display: none;
+}
+
+ .buoy-search-input {
+     margin-bottom: 10px;
+ }
+
+ .buoy-search-results {
+     max-height: 200px;
+     overflow-y: scroll;
+ }
+
+ .buoy-station-details .title{
+     font-size: 14px;
+ }
+
+@media (min-width: 600px) {
+    .buoy-overlay {
+        top: 27px;
+        left: 100px;
+    }
+
+    .buoy-overlay-tools {
+        width: 350px;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    
+    .buoy-overlay-tools .content {
+        display: block;
+    }
 }

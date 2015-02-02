@@ -50,7 +50,7 @@
                             title: station.name
                         });
                         var info = new google.maps.InfoWindow({
-                            content: '<div>' + station.name + '<hr/>Lat,Long: (' + station.lat + ', ' + station.lon + ')</div>'
+                            content: '<div><a href="#/station/' + station.id + '">' + station.name + ' (' + station.lat + ', ' + station.lon + ')</a></div>'
                         });
                         google.maps.event.addListener(marker, 'click', function() {
                             info.open(map, marker);

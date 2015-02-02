@@ -14,10 +14,16 @@ gulp.task('vendor', function() {
 });
 
 // styles
-gulp.task('styles', function () {
+gulp.task('styles', ['fonts'], function () {
     return gulp.src(config.assets.css)
         .pipe(concat('styles.css'))
 		.pipe(gulp.dest('public/css'));
+});
+
+// fonts
+gulp.task('fonts', function () {
+    return gulp.src(config.assets.fonts)
+		.pipe(gulp.dest('public/fonts'));
 });
 
 // client scripts

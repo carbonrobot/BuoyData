@@ -20,6 +20,9 @@ module.exports = {
             'client/assets/lib/bootstrap/dist/css/bootstrap-theme.css',
             'client/assets/css/*.css'
         ],
+        fonts: [
+            'client/assets/lib/bootstrap/dist/fonts/*'
+        ],
         js: [
             'client/app/app.js',
             'client/app/app.routes.js',

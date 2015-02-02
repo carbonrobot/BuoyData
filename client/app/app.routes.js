@@ -2,12 +2,16 @@
     'use strict';
 
     function config($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/map');
 
         $stateProvider
-            .state('/', {
-                url: '/',
-                templateUrl: 'home.view.html'
+            .state('map', {
+                url: '/map',
+                templateUrl: 'map.view.html'
+            })
+            .state('station', {
+                url: '/station/:id',
+                templateUrl: 'station.view.html'
             });
     };
 

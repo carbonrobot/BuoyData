@@ -1,0 +1,15 @@
+<section class="buoy-overlay-tools" data-ng-controller="MapController as map">
+    <div class="title">NOAA Buoy Data</div>
+    <div class="content">
+        <p>Welcome to the NOAA Buoy Data Explorer. You can search for Buoy data by browsing the map, or searching for a specific Buoy below.</p>
+        <hr />
+    </div>
+    <div class="search">
+        <input class="form-control buoy-search-input" type="text" placeholder="Search" data-ng-model="map.query" />
+        <div class="buoy-search-results">
+            <div class="list-group" data-ng-show="map.query">
+                <a data-ng-repeat="station in main.stations | filter: { name: map.query }" href="#/station/{{ station.id }}" class="list-group-item">{{ station.name }}</a>
+            </div>
+        </div>
+    </div>
+</section>
