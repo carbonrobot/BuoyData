@@ -3,7 +3,7 @@
 
     function homeController(noaaService) {
         var vm = this;
-        vm.selectedStation = null;
+        vm.selected = null;
         vm.stations = [];
 
         (function init() {

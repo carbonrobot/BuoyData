@@ -7,23 +7,14 @@
      */
     function googleMap() {
         var directive = {
-            controller: controller,
             link: link,
             restrict: 'EA',
             scope: {
-                stations: '='
+                stations: '=',
+                selected: '='
             }
         };
         
-        /**
-         * @name controller
-         * @desc Handles the google maps element
-         */
-        function controller($scope) {
-            // TODO: try to refactor as much as we can into controller
-        }
-        controller.$inject = ['$scope'];
-
         /**
          * @name link
          * @desc Manipulate the dom element and attach a gmap
@@ -32,11 +23,12 @@
 
             // set up the gmap with initial options
             var mapOptions = {
-                zoom: 8,
+                zoom: 5,
                 center: new google.maps.LatLng(42.674, -87.026),
                 mapTypeId: google.maps.MapTypeId.HYBRID
             };
             var map = new google.maps.Map(element[0], mapOptions);
+            var info = new google.maps.InfoWindow();
             var markers = [];
 
             // watch for station changes, and reset markers
@@ -47,13 +39,15 @@
                     _.forEach(scope.stations, function (station) {
                         var marker = new google.maps.Marker({
                             position: new google.maps.LatLng(parseFloat(station.lat), parseFloat(station.lon)),
-                            title: station.name
+                            title: station.name,
+                            icon: 'public/img/brand/rsz_aton_sm.png',
+                            id: station.id,
+                            station: station
                         });
-                        var info = new google.maps.InfoWindow({
-                            content: '<div><a href="#/station/' + station.id + '">' + station.name + ' (' + station.lat + ', ' + station.lon + ')</a></div>'
-                        });
-                        google.maps.event.addListener(marker, 'click', function() {
-                            info.open(map, marker);
+                        
+                        google.maps.event.addListener(marker, 'click', function () {
+                            scope.selected = marker.station;
+                            openInfo(marker.station, marker);
                         });
 
                         marker.setMap(map);
@@ -61,6 +55,33 @@
                     });
                 }
             });
+
+            // watch for selected marker changes
+            scope.$watch('selected', function () {
+                if (scope.selected) {
+                    var station = scope.selected;
+                    var marker = _.where(markers, { 'id': station.id })[0];
+                    openInfo(station, marker);
+                    centerViewport(marker);
+                }
+            });
+
+            /**
+             * @name centerViewport
+             * @desc Centers the gmap on the selected marker
+             */
+            function centerViewport(marker) {
+                map.setCenter(marker.position);
+            }
+
+            /**
+             * @name openInfo
+             * @desc Opens the info window for the selected marker
+             */
+            function openInfo(station, marker) {
+                info.setContent('<div><a href="#/station/' + station.id + '">' + station.name + ' (' + station.lat + ', ' + station.lon + ')</a></div>');
+                info.open(map, marker);
+            }
 
             /**
              * @name clearMarkers

@@ -8,7 +8,7 @@
         <input class="form-control buoy-search-input" type="text" placeholder="Search" data-ng-model="map.query" />
         <div class="buoy-search-results">
             <div class="list-group" data-ng-show="map.query">
-                <a data-ng-repeat="station in main.stations | filter: { name: map.query }" href="#/station/{{ station.id }}" class="list-group-item">{{ station.name }}</a>
+                <a data-ng-repeat="station in main.stations | filter: { name: map.query }" data-ng-click="map.select(station)" href="#/station/{{ station.id }}" class="list-group-item">{{ station.name }}</a>
             </div>
         </div>
     </div>

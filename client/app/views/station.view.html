@@ -2,6 +2,11 @@
     <div class="buoy-station-details">
         <div class="title">{{ station.buoy.name }}</div>
         <hr />
+        <ul class="list-unstyled">
+            <li><strong>ID</strong> {{ station.buoy.id }}</li>
+            <li><strong>Position</strong> {{ station.buoy.lat }}, {{ station.buoy.lon }}</li>
+            <li><strong>Type</strong> {{ station.buoy.type }}</li>
+        </ul>
         <a class="btn btn-small btn-default" href="#/map"><span class="glyphicon glyphicon-triangle-left"></span> Back</a>
     </div>
 </section>

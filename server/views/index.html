@@ -24,7 +24,7 @@
 <body data-ng-app="buoyApp">
     <div class="ng-cloak buoy-full-page" data-ng-controller="HomeController as main">
         <div data-ui-view class="buoy-overlay"></div>
-        <div data-google-map data-stations="main.stations" class="buoy-google-map"></div>
+        <div data-google-map data-stations="main.stations" data-selected="main.selected" class="buoy-google-map"></div>
     </div>
 
     <script src="https://maps.googleapis.com/maps/api/js?key={{googleApiKey}}"></script>
