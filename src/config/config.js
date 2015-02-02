@@ -1,6 +1,8 @@
 ﻿'use strict';
 
 module.exports = {
+    port: 3000,
+    googleApiKey: 'AIzaSyAy3EHc_GtzX-rnGjjEKixCrRAJGwQlVHQ',
     assets: {
         lib: {
             js: [
@@ -23,6 +25,7 @@ module.exports = {
             'client/app/*/*.js'
         ],
         views: 'client/app/views/*.html',
+        img: 'client/assets/img/**/*',
         tests: [
             'client/lib/angular-mocks/angular-mocks.js',
             'client/app/tests/*.js'

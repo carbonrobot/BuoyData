@@ -9,9 +9,7 @@
 
         function getStations() {
             return $http
-                .jsonp('http://www.ndbc.noaa.gov/ndbcmapstations.json', {
-                    responseType : 'json'
-                })
+                .get('/stations')
                 .then(function(response) {
                     return response.data.station;
                 });

@@ -1,11 +1,5 @@
 var gulp = require('gulp'),
-    autoprefixer = require('gulp-autoprefixer'),
-    minifycss = require('gulp-minify-css'),
-    jshint = require('gulp-jshint'),
-    rename = require('gulp-rename'),
     concat = require('gulp-concat'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload'),
     del = require('del'),
     nodemon = require('gulp-nodemon'),
     uglify = require('gulp-uglify'),
@@ -42,8 +36,14 @@ gulp.task('templates', function() {
         .pipe(gulp.dest('public/js'));
 });
 
+// images
+gulp.task('images', function() {
+    return gulp.src(config.assets.img)
+    .pipe(gulp.dest('public/img'));
+});
+
 // build
-gulp.task('build', ['clean', 'vendor', 'styles', 'templates', 'scripts']);
+gulp.task('build', ['clean', 'vendor', 'styles', 'templates', 'scripts', 'images']);
 
 // watch
 gulp.task('watch', function() {
@@ -59,8 +59,9 @@ gulp.task('clean', function() {
 
 // default development
 gulp.task('default', ['build', 'watch'], function(){
-	//nodemon({ 
-	//	script: 'server.js',
-	//	env: {NODE_ENV: 'development', DEBUG: true}
-	//});
+	nodemon({ 
+	    script: 'server.js',
+        watch: 'server/*',
+		env: {NODE_ENV: 'development', DEBUG: true}
+	});
 });

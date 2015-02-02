@@ -39,17 +39,18 @@
     <Content Include="client\app\app.js" />
     <Content Include="client\app\app.routes.js" />
     <Content Include="client\app\services\noaa.service.js" />
-    <Content Include="client\index.html" />
+    <Content Include="server\views\index.html" />
     <Content Include="config\config.js" />
     <Content Include="gulpfile.js" />
-    <Content Include="client\humans.txt" />
     <Content Include="client\assets\css\core.css" />
     <Content Include="client\assets\img\brand\rsz_aton.png" />
     <Content Include="client\assets\img\loaders\loader.gif" />
     <Content Include="client\app\controllers\home.controller.js" />
     <Content Include="client\app\directives\googleMap.directive.js" />
     <Content Include="client\app\views\home.view.html" />
-    <Content Include="client\robots.txt" />
+    <Content Include="server.js" />
+    <Content Include="server\controllers\index.controller.js" />
+    <Content Include="server\routes\index.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="client\assets\js\" />

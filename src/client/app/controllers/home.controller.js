@@ -12,7 +12,7 @@
                 vm.stations = data;
             });
 
-        });
+        })();
     }
 
     homeController.$inject = ['noaaService'];
