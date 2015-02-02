@@ -38,6 +38,7 @@
   <ItemGroup>
     <Content Include="client\app\app.js" />
     <Content Include="client\app\app.routes.js" />
+    <Content Include="client\app\services\noaa.service.js" />
     <Content Include="client\index.html" />
     <Content Include="config\config.js" />
     <Content Include="gulpfile.js" />
@@ -51,7 +52,6 @@
     <Content Include="client\robots.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="client\app\services\" />
     <Folder Include="client\assets\js\" />
     <Folder Include="client\assets\lib\" />
     <Folder Include="public\" />

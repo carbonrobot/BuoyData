@@ -4,6 +4,25 @@ html, body {
     padding: 0;
 }
 
-.full-page {
+.ng-cloak {
+    display: none;
+}
+
+.buoy-full-page {
     height: 100%;
+}
+
+.buoy-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+}
+
+.buoy-map-tools {
+    position: relative;
+    top: 27px;
+    left: 100px;
 }

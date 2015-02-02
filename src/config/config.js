@@ -4,10 +4,12 @@ module.exports = {
     assets: {
         lib: {
             js: [
+                'client/assets/lib/jquery/dist/jquery.js',
                 'client/assets/lib/angular/angular.js',
                 'client/assets/lib/angular-resource/angular-resource.js',
                 'client/assets/lib/angular-animate/angular-animate.js',
-                'client/assets/lib/angular-ui-router/release/angular-ui-router.js'
+                'client/assets/lib/angular-ui-router/release/angular-ui-router.js',
+                'client/assets/lib/bootstrap/dist/js/bootstrap.js'
             ]
         },
         css: [

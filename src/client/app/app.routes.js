@@ -1,7 +1,7 @@
 ﻿(function (angular) {
     'use strict';
 
-    var config = function($stateProvider, $urlRouterProvider) {
+    function config($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
 
         $stateProvider
