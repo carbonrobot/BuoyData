@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     nodemon = require('gulp-nodemon'),
     uglify = require('gulp-uglifyjs'),
     templateCache = require('gulp-angular-templatecache'),
+    bower = require('bower'),
     config = require('./config/config.js');
 
 // vendor scripts
@@ -49,7 +50,9 @@ gulp.task('images', function() {
 });
 
 // build
-gulp.task('build', ['clean', 'vendor', 'styles', 'templates', 'scripts', 'images']);
+gulp.task('build', ['clean', 'bower'], function(){
+	gulp.start('vendor', 'styles', 'templates', 'scripts', 'images');
+});
 
 // watch
 gulp.task('watch', function() {
@@ -59,8 +62,16 @@ gulp.task('watch', function() {
 });
 
 // clean assets
-gulp.task('clean', function() {
-    del(['public/css', 'public/js']);
+gulp.task('clean', function(cb) {
+    return del(['public/css', 'public/js'], cb);
+});
+
+// bower
+gulp.task('bower', function(cb){
+  bower.commands.install([], {save: true}, {})
+    .on('end', function(installed){
+      cb();
+    });
 });
 
 // default development

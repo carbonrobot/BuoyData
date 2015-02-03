@@ -5,7 +5,7 @@
   "homepage": "",
   "scripts": {
     "start": "node server.js",
-    "postinstall": "bower install --config.interactive=false && gulp build"
+    "postinstall": "gulp build"
   },
   "dependencies": {
     "glob": "^4.3.5",
@@ -15,12 +15,13 @@
     "request-json": "^0.5.0"
   },
   "devDependencies": {
+    "bower": "^1.3.12",
     "del": "^1.1.1",
     "gulp": "^3.8.10",
+    "gulp-angular-templatecache": "^1.5.0",
+    "gulp-bower": "0.0.10",
     "gulp-concat": "^2.4.3",
     "gulp-nodemon": "^1.0.5",
-    "gulp-uglifyjs": "^0.5.0",
-    "gulp-angular-templatecache": "^1.5.0",
-    "bower": "^1.3.12"
+    "gulp-uglifyjs": "^0.5.0"
   }
 }
