@@ -7,8 +7,16 @@ The NOAA Buoy Data Explorer will map known buoy locations on a global map and al
 The following assumes you have Node, NPM, and Bower installed. If not, refer to the installation on the appropriate websites.
 
 - Clone the repository
-- Run `npm install` to initialize packages. This will also run `bower install` automagically.
-- Run `npm start` to build and start the server in debug
+- Run `npm install` to initialize packages. This will also install bower packages and build the project automagically.
+
+For production
+
+- Run the command `npm start`
+- Browse to http://localhost:3000 in your favorite browser
+
+For development
+
+- Run the command `gulp default` to start the server and enter watch mode
 - Browse to http://localhost:3000 in your favorite browser
 
 ### Future Work

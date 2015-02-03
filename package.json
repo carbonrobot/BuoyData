@@ -4,8 +4,8 @@
   "version": "0.0.1",
   "homepage": "",
   "scripts": {
-    "start": "gulp default",
-    "postinstall": "bower install --config.interactive=false"
+    "start": "node server.js",
+    "postinstall": "bower install --config.interactive=false && gulp build"
   },
   "dependencies": {
     "glob": "^4.3.5",
