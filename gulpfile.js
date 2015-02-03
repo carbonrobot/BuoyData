@@ -51,7 +51,7 @@ gulp.task('images', function() {
 
 // build
 gulp.task('build', ['clean', 'bower'], function(){
-	gulp.start('vendor', 'styles', 'templates', 'scripts', 'images');
+	return gulp.start('vendor', 'styles', 'templates', 'scripts', 'images');
 });
 
 // watch
