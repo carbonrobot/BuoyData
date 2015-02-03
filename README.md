@@ -2,6 +2,10 @@ NOAA Buoy Data Explorer
 
 The NOAA Buoy Data Explorer will map known buoy locations on a global map and allow you to inspect basic details of each buoy.
 
+## Live Demo
+
+[http://noaabuoy.azurewebsites.net/](http://noaabuoy.azurewebsites.net/)
+
 ## Getting Started
 
 The following assumes you have Node, NPM, and Bower installed. If not, refer to the installation on the appropriate websites.
