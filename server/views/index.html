@@ -23,7 +23,9 @@
 
 <body data-ng-app="buoyApp">
     <div class="ng-cloak buoy-full-page" data-ng-controller="HomeController as main">
-        
+        <div class="buoy-site-loader" data-ng-hide="main.stations">
+            <div data-loading></div>
+        </div>
         <div data-ui-view class="buoy-overlay" data-ng-show="main.stations"></div>
         <div data-google-map data-stations="main.stations" data-selected="main.selected" class="buoy-google-map"></div>
     </div>
