@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- Fav Icon -->
-    <link href="public/img/rsz_aton.png" rel="shortcut icon" type="image/png">
+    <link href="public/img/brand/rsz_aton.png" rel="shortcut icon" type="image/png">
 
     <!-- HTML5 Shim -->
     <!--[if lt IE 9]>
@@ -23,7 +23,8 @@
 
 <body data-ng-app="buoyApp">
     <div class="ng-cloak buoy-full-page" data-ng-controller="HomeController as main">
-        <div data-ui-view class="buoy-overlay"></div>
+        
+        <div data-ui-view class="buoy-overlay" data-ng-show="main.stations"></div>
         <div data-google-map data-stations="main.stations" data-selected="main.selected" class="buoy-google-map"></div>
     </div>
 
