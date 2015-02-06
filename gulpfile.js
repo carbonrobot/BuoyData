@@ -2,7 +2,8 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     del = require('del'),
     nodemon = require('gulp-nodemon'),
-    uglify = require('gulp-uglifyjs'),
+    uglify = require('gulp-uglify'),
+    sourcemaps = require('gulp-sourcemaps'),
     templateCache = require('gulp-angular-templatecache'),
     bower = require('bower'),
     config = require('./config/config.js');
@@ -10,7 +11,8 @@ var gulp = require('gulp'),
 // vendor scripts
 gulp.task('vendor', function() {
     return gulp.src(config.assets.lib.js)
-        .pipe(uglify('vendor.min.js'))
+        .pipe(concat('vendor.min.js'))
+        .pipe(uglify())
 		.pipe(gulp.dest('public/js'));
 });
 
@@ -30,11 +32,10 @@ gulp.task('fonts', function () {
 // client scripts
 gulp.task('scripts', function() {
     return gulp.src(config.assets.js)
-        .pipe(gulp.dest('public/src/js'))
-        .pipe(uglify('application.min.js', {
-            outSourceMap: true,
-            sourceRoot: ''
-        }))
+        .pipe(sourcemaps.init())
+        .pipe(concat('application.min.js'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('public/js'));
 });
 
