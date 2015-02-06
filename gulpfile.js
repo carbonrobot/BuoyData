@@ -30,8 +30,10 @@ gulp.task('fonts', function () {
 // client scripts
 gulp.task('scripts', function() {
     return gulp.src(config.assets.js)
+        .pipe(gulp.dest('public/src/js'))
         .pipe(uglify('application.min.js', {
-            outSourceMap: true
+            outSourceMap: true,
+            sourceRoot: ''
         }))
         .pipe(gulp.dest('public/js'));
 });
