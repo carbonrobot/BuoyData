@@ -3,15 +3,12 @@
 
     function stationController($stateParams, noaaService) {
         var vm = this;
-        vm.buoy = null;
+        vm.station = null;
         
         (function init() {
 
-            noaaService.getStations().then(function (data) {
-
-                var stations = data;
-                vm.buoy = _.find(stations, { 'id': $stateParams.id });
-
+            noaaService.getStation($stateParams.id).then(function (data) {
+                vm.station = data;
             });
 
         })();

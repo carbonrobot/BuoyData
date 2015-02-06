@@ -4,7 +4,6 @@
     function noaa($http, $q) {
 
         var stations = null;
-        var selectedStation = null;
 
         function getStations() {
             if (stations) {
@@ -23,13 +22,15 @@
             }
         }
 
-        function getSelectedStation() {
-            return selectedStation;
+        function getStation(id) {
+            return $http.get('/stations/' + id, { cache: true }).then(function (response) {
+                return response.data;
+            });
         }
 
         return {
             getStations: getStations,
-            getSelectedStation: getSelectedStation
+            getStation: getStation
         };
     };
 

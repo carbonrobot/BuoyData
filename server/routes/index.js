@@ -1,6 +1,7 @@
 ﻿"use strict";
 
-var controller = require('../controllers/index.controller.js');
+var indexController = require('../controllers/index.controller.js'),
+    stationsController = require('../controllers/stations.controller.js');
 
 module.exports = function() {
     return [
@@ -8,17 +9,25 @@ module.exports = function() {
             method: 'GET',
             path: '/',
             config: {
-                handler: controller.index
+                handler: indexController.index
             }
         },
         {
             method: 'GET',
             path: '/stations',
             config: {
-                handler: controller.getStations
+                handler: stationsController.list
             }
         },
         {
+            method: 'GET',
+            path: '/stations/{id}',
+            config: {
+                handler: stationsController.index
+            }
+        },
+        {
+            // static content
             method: 'GET',
             path: '/public/{param*}',
             handler : {

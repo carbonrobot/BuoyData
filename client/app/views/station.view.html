@@ -1,12 +1,14 @@
-﻿<section class="buoy-overlay-tools" data-ng-controller="StationController as station">
+﻿<section class="buoy-overlay-tools" data-ng-controller="StationController as info">
     <div class="buoy-station-details">
-        <div class="title">{{ station.buoy.name }}</div>
+        <div class="title">{{ info.station.name }}</div>
         <hr />
+        <h4>Current Observations <br/><small>{{ info.station.datetime | date:'medium' }}</small></h4>
         <ul class="list-unstyled">
-            <li><strong>ID</strong> {{ station.buoy.id }}</li>
-            <li><strong>Position</strong> {{ station.buoy.lat }}, {{ station.buoy.lon }}</li>
-            <li><strong>Type</strong> {{ station.buoy.type }}</li>
+            <li><strong>ID</strong> {{ info.station.id }}</li>
+            <li><strong>Position</strong> {{ info.station.lat }}, {{ info.station.lon }}</li>
+            <li data-ng-repeat="data in info.station.data"><strong>{{ data.name }}</strong> {{ data.value }} {{ data.unit }}</li>
         </ul>
+        
         <a class="btn btn-small btn-default" href="#/map"><span class="glyphicon glyphicon-triangle-left"></span> Back</a>
     </div>
 </section>
